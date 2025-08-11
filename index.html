@@ -1,68 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vertex Design Systems — Mechanical Design & CAD Services</title>
-  <meta name="description" content="Mechanical design, CAD, drawings, and prototyping support. Vertex Design Systems helps teams ship manufacturable hardware—fast." />
   <style>
-    /* Minimal styles for clarity */
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #0b1220; color: #e6ebf5; }
-    header { background: #121a2c; padding: 1em; display: flex; justify-content: space-between; align-items: center; }
-    header .logo { font-weight: bold; font-size: 1.2em; }
-    nav a { color: #e6ebf5; margin-left: 1em; text-decoration: none; }
-    section { padding: 2em; max-width: 900px; margin: auto; }
-    h1, h2 { color: #4aa3ff; }
-    .card { background: #121a2c; padding: 1em; border-radius: 8px; margin-bottom: 1em; }
-    footer { text-align: center; padding: 1em; background: #121a2c; color: #9fb0c9; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0b1220;
+      color: #f5f7fa;
+    }
+    header {
+      background-color: #121a2c;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav a {
+      color: #f5f7fa;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: #00c8aa;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #0b1220, #121a2c);
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #cfd6e3;
+    }
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      background-color: #00c8aa;
+      border: none;
+      border-radius: 5px;
+      color: #0b1220;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      color: #00c8aa;
+      margin-bottom: 2rem;
+    }
+    .services, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: #121a2c;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    .card h3 {
+      color: #00c8aa;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #cfd6e3;
+      font-size: 0.95rem;
+    }
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .about p {
+      color: #cfd6e3;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact input, .contact textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.95rem;
+    }
+    .contact button {
+      padding: 0.8rem;
+      background-color: #00c8aa;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #0b1220;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #121a2c;
+      color: #9fb0c9;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Vertex Design Systems</div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section>
-    <h1>Mechanical Design & CAD Services</h1>
-    <p>I help teams turn ideas into manufacturable hardware: CAD models, 2D drawings, and prototype-ready parts.</p>
-  </section>
+<header>
+  <div class="logo">Vertex Design Systems</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="card">3D CAD Modeling</div>
-    <div class="card">Manufacturing Drawings (GD&T)</div>
-    <div class="card">Prototype Support & Optimization</div>
-  </section>
+<section class="hero">
+  <h1>Practical CAD & Mechanical Design Services</h1>
+  <p>Helping inventors, hobbyists, and small projects turn ideas into manufacturable reality.</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+    Request a Quote
+  </button>
+</section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="card">Lightweight Aluminum Bracket</div>
-    <div class="card">Robotics Arm Mount</div>
-    <div class="card">Sheet Metal Enclosure</div>
-  </section>
+<section id="services" class="section">
+  <h2>Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>3D CAD Modeling</h3>
+      <p>Accurate, parametric CAD models ready for prototyping or manufacturing.</p>
+    </div>
+    <div class="card">
+      <h3>Engineering Drawings</h3>
+      <p>Detailed drawings with GD&T for precise manufacturing requirements.</p>
+    </div>
+    <div class="card">
+      <h3>Finite Element Analysis (FEA)</h3>
+      <p>Simulate and evaluate stress, strain, and performance under real-world conditions.</p>
+    </div>
+    <div class="card">
+      <h3>Design for Manufacturability</h3>
+      <p>Optimizing your design for efficient, cost-effective production.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>I'm a mechanical engineering student and designer focused on practical, manufacturable mechanical design for robotics, automotive, and lab hardware.</p>
-  </section>
+<section id="portfolio" class="section">
+  <h2>Portfolio</h2>
+  <div class="portfolio-grid">
+    <div><img src="https://via.placeholder.com/400x300?text=Project+1" alt="Project 1"></div>
+    <div><img src="https://via.placeholder.com/400x300?text=Project+2" alt="Project 2"></div>
+    <div><img src="https://via.placeholder.com/400x300?text=Project+3" alt="Project 3"></div>
+    <div><img src="https://via.placeholder.com/400x300?text=Project+4" alt="Project 4"></div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:vertexdesignsystems@gmail.com" style="color:#4aa3ff">vertexdesignsystems@gmail.com</a></p>
-  </section>
+<section id="about" class="section about">
+  <h2>About</h2>
+  <p>Vertex Design Systems is a small, flexible mechanical design service focused on turning concepts into manufacturable parts. We provide CAD modeling, drawings, and analysis for clients worldwide, combining precision with practical design thinking.</p>
+</section>
 
-  <footer>
-    &copy; <span id="year"></span> Vertex Design Systems
-  </footer>
+<section id="contact" class="section contact">
+  <h2>Contact</h2>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Project Details" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p style="text-align:center; margin-top:1rem;">Or email us directly: <a href="mailto:vertexdesignsystems@gmail.com" style="color:#00c8aa;">vertexdesignsystems@gmail.com</a></p>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<footer>
+  &copy; <span id="year"></span> Vertex Design Systems
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
