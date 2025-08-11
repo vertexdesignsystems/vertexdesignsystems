@@ -3,58 +3,243 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vertex Design Systems — CAD & Mechanical Design Services</title>
-  <meta name="description" content="CAD models, engineering drawings, FEA (basics), and DFM for small-scale projects, inventors, and teams." />
-  <link rel="stylesheet" href="style.css">
+  <title>Vertex Design Systems — Mechanical Design & CAD Services</title>
+  <meta name="description" content="Practical CAD modeling, engineering drawings (GD&T), basic FEA, and DFM for small projects, inventors, and teams. Fast, clear, manufacturable results." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vertex Design Systems — Mechanical Design & CAD Services" />
+  <meta property="og:description" content="CAD models, drawings, basic FEA, and DFM for small projects and inventors." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1220" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2c;
+      --ink:#f5f7fa;
+      --muted:#cfd6e3;
+      --accent:#00c8aa;
+      --line:rgba(255,255,255,.08);
+      --radius:12px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:var(--ink);text-decoration:none}
+    a:focus{outline:2px solid var(--accent);outline-offset:2px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:rgba(18,26,44,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:800;letter-spacing:.2px}
+    nav a{margin-left:18px;opacity:.9}
+    nav a:hover{opacity:1;color:var(--accent)}
+
+    /* Sections */
+    section{padding:64px 20px;border-top:1px solid var(--line)}
+    .container{max-width:var(--max);margin:0 auto}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+
+    /* Hero */
+    .hero{padding:84px 20px;background:radial-gradient(900px 480px at 70% -10%, rgba(0,200,170,.18), transparent 60%)}
+    .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+    h1{font-size:42px;line-height:1.15;margin:0 0 10px}
+    .lead{color:var(--muted);margin:0 0 22px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--line);background:#0f162a;color:var(--ink)}
+    .btn.primary{background:var(--accent);color:#0b1220;font-weight:800;border-color:transparent}
+    .btn:hover{filter:brightness(1.08)}
+    .chips{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .chip{font-size:12px;color:#06221d;background:#59e7d3;border-radius:999px;padding:6px 10px}
+
+    /* Services */
+    h2{font-size:28px;margin:0 0 8px;text-align:center}
+    .subtitle{text-align:center;color:var(--muted);margin:0 0 24px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+    .card h3{margin:0 0 8px;color:var(--accent);font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:15px}
+
+    /* Portfolio */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .work{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .work img{aspect-ratio:16/10;object-fit:cover}
+    .work .meta{padding:12px;color:var(--muted);font-size:14px}
+
+    /* About */
+    .about p{color:var(--muted);max-width:800px;margin:0 auto;text-align:center}
+
+    /* Contact */
+    .contact form{max-width:520px;margin:0 auto;display:flex;flex-direction:column}
+    .contact input,.contact textarea{margin-bottom:12px;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0f162a;color:var(--ink)}
+    .contact button{padding:12px;border-radius:10px;border:0;background:var(--accent);color:#0b1220;font-weight:800}
+    .contact small{display:block;text-align:center;color:var(--muted);margin-top:8px}
+
+    footer{text-align:center;padding:32px 20px;background:var(--panel);color:#9fb0c9;border-top:1px solid var(--line);margin-top:20px}
+
+    /* Responsive */
+    @media (max-width:1020px){ .hero .grid,.cards,.grid{grid-template-columns:1fr} h1{font-size:36px}}
+  </style>
 </head>
 <body>
-  <header class="hdr">
-    <div class="wrap nav">
-      <div class="brand">
-        <div class="logo">V</div>
-        <span>Vertex Design Systems</span>
-      </div>
-      <nav class="links">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header role="banner">
+  <div class="wrap nav" aria-label="Primary">
+    <div class="logo">Vertex Design Systems</div>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero section-textured">
-      <div class="wrap hero-grid">
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero">
+      <div class="grid">
         <div>
-          <h1>Practical CAD & mechanical design for small projects and inventors.</h1>
-          <p class="lead">From sketches to manufacturable parts: parametric CAD, clear drawings with GD&T, simple FEA checks, and DFM for 3D printing and CNC.</p>
+          <h1 id="hero-title">Practical CAD & Mechanical Design Services</h1>
+          <p class="lead">Helping inventors, hobbyists, and small projects turn ideas into manufacturable reality: CAD models, clear drawings with GD&T, basic FEA, and DFM.</p>
           <div class="cta">
-            <a class="btn primary" href="#contact">Request a quote</a>
+            <a class="btn primary" href="#contact">Request a Quote</a>
             <a class="btn" href="#portfolio">See work</a>
           </div>
-          <div class="chiprow">
+          <div class="chips" aria-label="Capabilities">
             <span class="chip">SolidWorks / Fusion</span>
             <span class="chip">Engineering Drawings</span>
             <span class="chip">FEA (basics)</span>
             <span class="chip">DFM / 3D printing</span>
           </div>
         </div>
-        <div class="hero-card">
-          <h3>Typical deliverables</h3>
-          <div class="mesh" aria-hidden="true"></div>
-          <p class="small" style="margin-top:10px">• Parametric parts & assemblies • PDFs + source drawings • STEP/STL • Simple FEA screenshots • BOMs</p>
+        <div class="panel" aria-label="Typical deliverables">
+          <h3 style="margin:0 0 8px;">Typical deliverables</h3>
+          <ul style="margin:0;color:var(--muted);padding-left:18px">
+            <li>Parametric parts & assemblies (STEP/STL)</li>
+            <li>PDF + source drawings with sensible tolerances</li>
+            <li>Simple FEA screenshots and summary notes</li>
+            <li>BOMs and basic assembly guidance</li>
+          </ul>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="ftr">
-    <div class="wrap">© <span id="yr"></span> Vertex Design Systems. All rights reserved.</div>
-  </footer>
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">Services</h2>
+      <p class="subtitle">Clear, manufacturable outputs without big-company overhead.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>3D CAD Modeling</h3>
+          <p>Clean, fully-defined parts & assemblies ready for review or fabrication. Parametric design intent for fast changes.</p>
+        </article>
+        <article class="card">
+          <h3>Engineering Drawings</h3>
+          <p>Readable drawings with practical tolerances and GD&T where it adds value. Delivered as PDF and source files.</p>
+        </article>
+        <article class="card">
+          <h3>FEA (Basics)</h3>
+          <p>Linear static checks for stress/deflection with concise screenshots. Good for early risk reduction.</p>
+        </article>
+        <article class="card">
+          <h3>Design for Manufacturability</h3>
+          <p>3D-print/CNC-friendly designs, hardware selection, and notes to get your first article built reliably.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <!-- PORTFOLIO -->
+  <section id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <h2 id="portfolio-title">Selected Work</h2>
+      <p class="subtitle">Sample projects (more details available privately on request).</p>
+      <div class="grid">
+        <article class="work">
+          <img src="https://picsum.photos/800/500?random=501" alt="Lightweight Aluminum Bracket CAD render" />
+          <div class="meta">Mass-optimized bracket; drawing set + STEP delivery.</div>
+        </article>
+        <article class="work">
+          <img src="https://picsum.photos/800/500?random=502" alt="Robotics Arm Mount assembly view" />
+          <div class="meta">Machined mount, fasteners, exploded view & BOM.</div>
+        </article>
+        <article class="work">
+          <img src="https://picsum.photos/800/500?random=503" alt="Sheet metal enclosure flat pattern" />
+          <div class="meta">Flat pattern, bend notes, hardware for serviceability.</div>
+        </article>
+        <article class="work">
+          <img src="https://picsum.photos/800/500?random=504" alt="3D printed fixture" />
+          <div class="meta">Print-oriented design with heat-set inserts and notes.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title">About</h2>
+      <div class="panel" style="max-width:900px;margin:0 auto">
+        <p class="lead" style="text-align:center;margin:0">
+          Vertex Design Systems is a small, flexible mechanical design service focused on turning concepts into manufacturable parts for individual builders and small teams.
+        </p>
+        <ul style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px 16px;list-style:none;padding:0;margin:18px 0 0;color:var(--muted)">
+          <li><strong>Focus</strong>: CAD, drawings, DFM, early FEA checks</li>
+          <li><strong>Tools</strong>: SolidWorks, Fusion 360</li>
+          <li><strong>Turnaround</strong>: Project-based; timeline agreed per scope</li>
+          <li><strong>Location</strong>: Toronto, Canada (remote friendly)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container contact">
+      <h2 id="contact-title">Contact</h2>
+      <form id="contactForm" action="" method="POST" aria-label="Request a quote">
+        <!-- To enable Formspree: set action="https://formspree.io/f/YOUR_FORMSPREE_ID" -->
+        <label>
+          <span class="visually-hidden">Your name</span>
+          <input type="text" name="name" placeholder="Your name" required>
+        </label>
+        <label>
+          <span class="visually-hidden">Your email</span>
+          <input type="email" name="_replyto" placeholder="Your email" required>
+        </label>
+        <label>
+          <span class="visually-hidden">Project details</span>
+          <textarea name="message" rows="5" placeholder="Briefly describe the part/assembly, constraints, and timeline." required></textarea>
+        </label>
+        <button type="submit" class="btn primary">Send message</button>
+        <small>Prefer email? <a href="mailto:vertexdesignsystems@gmail.com" style="color:var(--accent)">vertexdesignsystems@gmail.com</a></small>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  © <span id="year"></span> Vertex Design Systems
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fallback behavior if no Formspree endpoint is set: open mail client with pre-filled body.
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    if(!form.action){ // no Formspree endpoint provided
+      e.preventDefault();
+      const name = encodeURIComponent(form.name.value || "");
+      const email = encodeURIComponent(form._replyto.value || "");
+      const msg = encodeURIComponent(form.message.value || "");
+      window.location.href = `mailto:vertexdesignsystems@gmail.com?subject=Quote%20request&body=Name:%20${name}%0AEmail:%20${email}%0A%0ARequest:%0A${msg}`;
+    }
+  });
+</script>
 </body>
 </html>
