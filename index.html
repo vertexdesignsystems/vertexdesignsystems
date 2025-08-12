@@ -77,9 +77,52 @@
 
     footer{text-align:center;padding:32px 20px;background:var(--panel);color:#9fb0c9;border-top:1px solid var(--line);margin-top:20px}
 
-    /* Responsive */
-    @media (max-width:1020px){ .hero .grid,.cards,.grid{grid-template-columns:1fr} h1{font-size:36px}}
-  </style>
+     /* Responsive */
+  @media (max-width:1020px){
+    .hero .grid,.cards,.grid{grid-template-columns:1fr}
+    h1{font-size:36px}
+  }
+
+  /* screen-reader-only label text (prevents the stray "Project details" line) */
+  .visually-hidden{
+    position:absolute !important;
+    height:1px;width:1px;overflow:hidden;
+    clip:rect(1px,1px,1px,1px); white-space:nowrap;
+  }
+
+  /* make the form uniform like your screenshot */
+  .contact form{
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact input,
+  .contact textarea{
+    width: 100%;
+    padding: 16px 14px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,.18);
+    background: #ffffff;
+    color: #0b1220;
+    box-shadow: 0 1px 0 rgba(255,255,255,.05) inset;
+  }
+
+  .contact textarea{ min-height: 160px; resize: vertical; }
+
+  .contact button{
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 0;
+    background: var(--accent);
+    color: #06221d;
+    font-weight: 800;
+  }
+</style>
 </head>
 <body>
 <header role="banner">
@@ -190,7 +233,6 @@
           <li><strong>Focus</strong>: CAD, drawings, DFM, early FEA checks</li>
           <li><strong>Tools</strong>: SolidWorks, Fusion 360</li>
           <li><strong>Turnaround</strong>: Project-based; timeline agreed per scope</li>
-          <li><strong>Location</strong>: Toronto, Canada (remote friendly)</li>
         </ul>
       </div>
     </div>
