@@ -282,23 +282,31 @@
   <section id="contact" aria-labelledby="contact-title">
     <div class="container contact">
       <h2 id="contact-title">Contact</h2>
-      <form id="contactForm" action="" method="POST" aria-label="Request a quote">
-        <!-- To enable Formspree: set action="https://formspree.io/f/YOUR_FORMSPREE_ID" -->
-        <label>
-          <span class="visually-hidden">Your name</span>
-          <input type="text" name="name" placeholder="Your name" required>
-        </label>
-        <label>
-          <span class="visually-hidden">Your email</span>
-          <input type="email" name="_replyto" placeholder="Your email" required>
-        </label>
-        <label>
-          <span class="visually-hidden">Project details</span>
-          <textarea name="message" rows="5" placeholder="Briefly describe the part/assembly, constraints, and timeline." required></textarea>
-        </label>
-        <button type="submit" class="btn primary">Send message</button>
-        <small>Prefer email? <a href="mailto:vertexdesignsystems@gmail.com" style="color:var(--accent)">vertexdesignsystems@gmail.com</a></small>
-      </form>
+        <form id="contactForm" action="https://formspree.io/f/xkgzypvz" method="POST" aria-label="Request a quote">
+  <!-- To enable Formspree: action is set -->
+          <label>
+            <span class="visually-hidden">Your name</span>
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>
+            <span class="visually-hidden">Your email</span>
+            <input type="email" name="_replyto" placeholder="Your email" required>
+          </label>
+          <label>
+             <span class="visually-hidden">Project details</span>
+             <textarea name="message" rows="5" placeholder="Briefly describe the part/assembly, constraints, and timeline." required></textarea>
+            </label>
+          
+  <!-- Anti-spam honeypot (optional) -->
+  <div style="display:none" aria-hidden="true">
+    <label>Leave this empty: <input type="text" name="_gotcha"></label>
+  </div>
+
+  <button type="submit" class="btn primary">Send message</button>
+  <small id="formNote" style="text-align:center;color:var(--muted);margin-top:8px"></small>
+  <small>Prefer email? <a href="mailto:vertexdesignsystems@gmail.com" style="color:var(--accent)">vertexdesignsystems@gmail.com</a></small>
+</form>
+
     </div>
   </section>
 </main>
@@ -311,15 +319,38 @@
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Fallback behavior if no Formspree endpoint is set: open mail client with pre-filled body.
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e){
-    if(!form.action){ // no Formspree endpoint provided
-      e.preventDefault();
-      const name = encodeURIComponent(form.name.value || "");
-      const email = encodeURIComponent(form._replyto.value || "");
-      const msg = encodeURIComponent(form.message.value || "");
-      window.location.href = `mailto:vertexdesignsystems@gmail.com?subject=Quote%20request&body=Name:%20${name}%0AEmail:%20${email}%0A%0ARequest:%0A${msg}`;
+  const note = document.getElementById('formNote');
+
+  function mailtoFallback() {
+    const name  = encodeURIComponent(form.name.value || "");
+    const email = encodeURIComponent(form._replyto.value || "");
+    const msg   = encodeURIComponent(form.message.value || "");
+    window.location.href =
+      `mailto:vertexdesignsystems@gmail.com?subject=Quote%20request&body=Name:%20${name}%0AEmail:%20${email}%0A%0ARequest:%0A${msg}`;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // If action is missing, use mailto fallback
+    if (!form.action) return mailtoFallback();
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        note.textContent = "Thanks — I’ll reply shortly.";
+        form.reset();
+      } else {
+        note.textContent = "Submission error. Please email me directly.";
+      }
+    } catch {
+      note.textContent = "Network error. Please email me directly.";
     }
   });
 </script>
